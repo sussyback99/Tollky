@@ -1,0 +1,16 @@
+name: tollky-write
+
+on:
+  repository_dispatch:
+    types: [tollky-write]
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write to jsonbin
+        run: |
+          curl -X PUT "https://api.jsonbin.io/v3/b/${{ secrets.JSONBIN_BIN_ID }}" \
+            -H "Content-Type: application/json" \
+            -H "X-Master-Key: ${{ secrets.JSONBIN_KEY }}" \
+            -d '${{ github.event.client_payload.data }}'
