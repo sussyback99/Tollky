@@ -10,8 +10,9 @@
 <body>
   <div class="header">
     <a href="#/" class="logo">🦉 Tollky</a>
-    <span class="tagline">[общага без регистрации]</span>
+    <span class="tagline">[общага без регистрации... почти]</span>
   </div>
+
   <div class="nav">
     [
     <a href="#/">все</a>
@@ -20,15 +21,14 @@
     <button id="newSubBtn" class="link">+ ветка</button>
     <input id="search" placeholder="поиск...">
     <button id="newPostBtn" class="link">+ пост</button>
+    <span id="userArea"></span>
   </div>
 
   <hr>
-
   <div id="feed"></div>
-
   <hr>
   <div class="footer">
-    <a href="#/">🦉 Tollky</a> — сделано на коленке · <span id="year"></span>
+    <a href="#/">🦉 Tollky</a> — GNU GPL sussyback99 (C) · 2026
   </div>
 
   <div id="modal" class="hidden">
@@ -37,9 +37,25 @@
       <label>Ветка: <select id="postSub"></select></label>
       <label>Заголовок: <input id="postTitle"></label>
       <label>Текст:<br><textarea id="postText"></textarea></label>
+      <label>Картинка (URL): <input id="postImage" placeholder="https://... (необязательно)"></label>
       <div class="actions">
         <button id="cancelBtn">Отмена</button>
         <button id="submitPost">Опубликовать</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="authModal" class="hidden">
+    <div class="box">
+      <h2 id="authTitle">Вход</h2>
+      <label>Ник: <input id="authName" autocomplete="username"></label>
+      <label>Пароль: <input id="authPass" type="password" autocomplete="current-password"></label>
+      <div class="actions">
+        <button id="authCancel">Отмена</button>
+        <button id="authSubmit">Войти</button>
+      </div>
+      <div style="text-align:center;margin-top:8px;font-size:11px;">
+        <a href="#" id="authToggle">нет аккаунта? регистрация</a>
       </div>
     </div>
   </div>
